@@ -19,8 +19,6 @@
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-import org.redline_rpm.payload.Directive
-
 plugins {
     id 'com.netflix.nebula.ospackage' version 'latest.release'
 }
@@ -135,7 +133,7 @@ task generateJdkRpm(type: Rpm) {
 
     from(jdkBinaryDir) {
         include(project.configurationFiles)
-        fileType new Directive(CONFIG.flag() | NOREPLACE.flag())
+        fileType CONFIG | NOREPLACE
         into jdkHome
     }
 
